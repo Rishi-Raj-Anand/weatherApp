@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100..900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="wrapper" class="wrapper day">
+        <h1 class="heading">Weather App</h1>
+        <div class="main-container">
+            <!-- tab -->
+            <div class="tab-container">
+                <div class="user-weather tab-btn">Your Weather</div>
+                <div class="search-weather tab-btn">Search Weather</div>
+            </div>
+
+            <!-- Acces location page -->
+            <div class="location-page ">
+                <img src="./assets/location.png" alt="loacation..." loading="lazy" width="100px">
+                <p>grant Location Access</p>
+                <p>Allow access to get Weather information</p>
+                <button class="get-access-btn"> Grant Access</button>
+            </div>
+
+            <!-- search tab -->
+            <div class="search-tab hide-page">
+                <input type="text" placeholder="search for city..." city>
+                <div class="search-city-btn">
+                    <img src="./assets/search-icon2.svg" alt="">
+                </div>
+            </div>
+
+            <!-- loading page -->
+            <div class="loading-page hide-page ">
+                <img src="./assets/loading.gif" alt="loading..."  width="200px">
+                <h3>Loading...</h3>
+            </div>
+
+            <!-- Error page -->
+            <div class="error-page hide-page ">
+                <img src="./assets/not-found.png" alt="not-found"  width="200px">
+                <p>Loation not found</p>
+            </div>
+
+            <!-- info-page -->
+            <div class="info-page hide-page ">
+                <div class="loc-tem-info">
+                    <div>
+                        <h2 class="location-name"></h2>
+                        <h3 class="state-name"></h3>
+                        
+                    </div>
+                    <h1 class="temperature"></h1>
+                </div>
+                
+                <div class="weather">
+                    <img src="" alt="img" width="100px" weather-img>
+                    <p class="weather-desc"></p>
+                    
+                </div>
+                
+                
+
+                <div class="other-info-card-container ">
+                    <div class="windspeed-card para-card">
+                        <img src="./assets/wind.png" alt="wind"  width="100px">
+                        <p>windspeed</p>
+                        <p class="windspeed-info"></p>
+                        <p class="wind-dir"></p>
+                    </div>
+
+                    <div class="Humidity-card para-card">
+                        <img src="./assets/humidity.png" alt="wind"  width="100px">
+                        <p>Humidity</p>
+                        <p class="humidity-info"></p>
+                    </div>
+
+                    <div class="clouds-card para-card">
+                        <img src="./assets/cloud.png" alt="wind"  width="100px">
+                        <p>clouds</p>
+                        <p class="clouds-info"></p>
+                    </div>
+
+                    
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
