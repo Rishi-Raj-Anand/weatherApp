@@ -30,9 +30,9 @@ function changeToUserTab(){
     userTab.classList.add("tab-background");
 
     document.querySelector(".search-tab").classList.add("hide-page");
-
+    document.querySelector(".info-page").classList.add("hide-page");
     let userCoordinates=sessionStorage.getItem('userCoordinates');
-
+    
     if(userCoordinates!=null){
         document.querySelector(".location-page").classList.add("hide-page");
         // API call for weather info
@@ -44,6 +44,7 @@ function changeToUserTab(){
     }else{
         
         if(navigator.geolocation){
+        document.querySelector(".info-page").classList.add("hide-page");
         document.querySelector(".location-page").classList.remove("hide-page");
         console.log("Getting user location...");
 
@@ -66,7 +67,7 @@ async function getWeatherData(cityQuery){
     console.log("Getting weather details...");
 
     try{
-        let response=await fetch(`http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${cityQuery}&aqi=yes`);
+        let response=await fetch(`https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${cityQuery}&aqi=yes`);
 
         if(response.ok){
             const  data = await response.json();
@@ -112,6 +113,7 @@ function errorInAccessingLocation() {
 }
 
 function renderWeatherInfo(data){
+
     document.querySelector(".loading-page").classList.add("hide-page");
     if(data!=null){
         document.querySelector(".info-page").classList.remove("hide-page");
@@ -121,7 +123,7 @@ function renderWeatherInfo(data){
         let temperature=data?.current?.temp_c;
         let isDay=data?.current?.is_day; // 1 or 0
         let weatherDesc=data?.current?.condition?.text;
-        let weatherDescIcon=data?.current?.condition?.icon;
+        let weatherDescIcon=`http:${data?.current?.condition?.icon}`;
         let windSpeed=data?.current?.wind_kph; // in km per hours
         let windDirection=data?.current?.wind_dir;
         let humidity=data?.current?.humidity;
@@ -153,6 +155,7 @@ function renderWeatherInfo(data){
         document.querySelector(".clouds-info").innerText=`${cloud}％`;
 
     }else{
+        document.querySelector(".info-page").classList.add("hide-page");
         document.querySelector(".error-page").classList.remove("hide-page");
         console.log("Data not found");
     }
