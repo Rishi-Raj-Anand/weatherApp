@@ -97,6 +97,7 @@
     text-transform: uppercase;
     font-size: medium;
     font-weight:bold;
+    text-align: center;
 }
 
 .get-access-btn{
@@ -234,6 +235,7 @@ input[city]::placeholder{
     flex-wrap: wrap;
     margin-top: 2rem;
     padding: 0 1.2rem;
+    object-fit: contain;
     
 }
 
@@ -247,8 +249,9 @@ input[city]::placeholder{
     border-radius: 0.6rem;
     gap: 0.3rem;
     text-transform: uppercase;
+    text-align: center;
     
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 .para-card img{
     width: 50%;
